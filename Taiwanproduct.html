@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라면 검색결과 - 라면로드</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.4;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar {
+            background: #f8f8f8;
+            padding: 5px 0;
+            font-size: 12px;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        .top-bar a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .main-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: #FF4757;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 30px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 50px 12px 15px;
+            border: 2px solid #e63312;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 45px;
+            background: #e63312;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .user-menu {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .user-menu a {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .cart-icon {
+            background: #e63312;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff6b00;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: white;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: #e63312;
+        }
+
+        /* Search Result Header */
+        .search-result-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .search-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .result-count {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .result-count .highlight {
+            color: #e63312;
+            font-weight: bold;
+        }
+
+        .sort-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .sort-btn {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .sort-btn.active {
+            background: #e63312;
+            color: white;
+            border-color: #e63312;
+        }
+
+        .sort-btn:hover {
+            border-color: #e63312;
+            color: #e63312;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+        }
+
+        .filter-sidebar {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .filter-group {
+            margin-bottom: 25px;
+        }
+
+        .filter-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .filter-option:hover {
+            color: #e63312;
+        }
+
+        .filter-option input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        .price-range {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .price-input {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        /* Product Grid */
+        .product-grid-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .view-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 5px;
+        }
+
+        .view-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+        }
+
+        .view-btn.active {
+            background: #e63312;
+            color: white;
+            border-color: #e63312;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f8f8f8, #e8e8e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #e63312;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .discount-badge {
+            background: #ff6b00;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-brand {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
+        .product-name {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .product-price-section {
+            margin-bottom: 8px;
+        }
+
+        .original-price {
+            font-size: 12px;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 5px;
+        }
+
+        .discount-rate {
+            font-size: 14px;
+            color: #e63312;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .stars {
+            color: #ffc107;
+        }
+
+        .shipping-info {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .free-shipping {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        /* Pagination */
+        .pagination-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagination {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .page-btn {
+            width: 35px;
+            height: 35px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .page-btn:hover {
+            border-color: #e63312;
+            color: #e63312;
+        }
+
+        .page-btn.active {
+            background: #e63312;
+            color: white;
+            border-color: #e63312;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .filter-section {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-sidebar {
+                order: 2;
+            }
+
+            .product-grid-container {
+                order: 1;
+            }
+
+            .main-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .search-container {
+                margin: 0;
+                max-width: none;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .search-info {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+
+        /* Loading Animation */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .loading {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+            <a href="#">고객센터</a>
+        </div>
+
+        <div class="main-header">
+            <a href="./index.html" class="logo">🍜 RamenRoad</a>
+
+            <div class="search-container">
+                <input type="text" class="search-box" value="" placeholder="검색어를 입력하세요">
+                <button class="search-btn">🔍</button>
+            </div>
+
+            <div class="user-menu">
+                <a href="#">내정보</a>
+                <a href="#">주문배송</a>
+                <a href="#" class="cart-icon">
+                    🛒
+                    <span class="cart-count">3</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="#">홈</a> > <a href="#">검색결과</a> > <strong>대만 라면</strong>
+        </div>
+    </div>
+
+    <!-- Search Result Header -->
+    <div class="search-result-header">
+        <h1 class="search-title">'대만 라면' 검색결과</h1>
+        <div class="search-info">
+            <div class="result-count">
+                총 <span class="highlight">1,247</span>개의 상품이 있습니다.
+            </div>
+            <div class="sort-options">
+                <button class="sort-btn active">인기순</button>
+                <button class="sort-btn">낮은가격순</button>
+                <button class="sort-btn">높은가격순</button>
+                <button class="sort-btn">할인율순</button>
+                <button class="sort-btn">리뷰많은순</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar">
+            <div class="filter-group">
+                <h3 class="filter-title">브랜드</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>농심 (324)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>오뚜기 (198)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>삼양 (156)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>팔도 (89)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>진라면 (67)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-title">나라별 라면</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span><a href="./Domesticproduct.html">한국 (834)</a></span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span><a href="./japaneseproduct.html">일본 (258)</a></span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span><a href="./Indonesia_product.html">인도네시아 (138)</a></span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span><a href="./Singaporeproduct.html">싱가포르 (106)</a></span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span><a href="./Vietnamproduct.html">베트남 (125)</a></span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span><a href="./Thailandproduct.html">태국 (137)</a></span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" checked>
+                        <span><a href="./Taiwanproduct.html">대만 (153)</a></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-title">가격대</h3>
+                <div class="price-range">
+                    <input type="number" class="price-input" placeholder="최소" value="1000">
+                    <span>~</span>
+                    <input type="number" class="price-input" placeholder="최대" value="50000">
+                    <button
+                        style="padding: 5px 10px; background: #e63312; color: white; border: none; border-radius: 3px;">적용</button>
+                </div>
+                <div class="filter-options" style="margin-top: 10px;">
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>1,000원 이하 (23)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>1,000원 ~ 3,000원 (456)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>3,000원 ~ 5,000원 (234)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>5,000원 이상 (534)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-title">배송</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>무료배송 (892)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>당일배송 (156)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>새벽배송 (43)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <h3 class="filter-title">할인</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>할인상품만 (678)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>쿠폰적용 (234)</span>
+                    </label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <main class="product-grid-container">
+            <div class="view-options">
+                <div class="view-toggle">
+                    <button class="view-btn active">⊞</button>
+                    <button class="view-btn">☰</button>
+                </div>
+                <div style="font-size: 12px; color: #666;">
+                    <span>1-24</span> / <span>1,247개</span>
+                </div>
+            </div>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-badge">베스트</div>
+                        <img src="./img/Manhan_Uyuk.jpg" height="100%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">웅진식품</div>
+                        <div class="product-name">웅진식품 만한대찬 마라 우육면 컵라면 204g (4개)</div>
+                        <div class="product-price-section">
+                            <div class="product-price">7,900원</div>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(1,234)</span>
+                        </div>
+                        <div class="shipping-info">
+                            <span class="free-shipping">무료배송</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-badge discount-badge">37%</div>
+                        <img src="./img/Manhan_Uyuk_bong.jpg" height="90%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">웅진식품</div>
+                        <div class="product-name">웅진식품 만한대찬 마라우육면 3개</div>
+                        <div class="product-price-section">
+                            <span class="original-price">29,500원</span>
+                            <span class="discount-rate">37%</span>
+                            <div class="product-price">18,500원</div>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span>(892)</span>
+                        </div>
+                        <div class="shipping-info">
+                            <span class="free-shipping">무료배송</span> | 당일배송
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/Manhan_Uyuk_Jinmi.jpg" height="90%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">웅진식품</div>
+                        <div class="product-name">웅진식품 만한대찬 진미우육면 3개</div>
+                        <div class="product-price-section">
+                            <div class="product-price">19,000원</div>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(2,156)</span>
+                        </div>
+                        <div class="shipping-info">
+                            배송비 2,500원
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-badge">신상</div>
+                        <img src="./img/Manhan_Uyuk_chili.jpg" height="90%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">웅진식품</div>
+                        <div class="product-name">웅진식품 만한대찬 칠리돈육면 3개</div>
+                        <div class="product-price-section">
+                            <div class="product-price">19,000원</div>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span>(567)</span>
+                        </div>
+                        <div class="shipping-info">
+                            <span class="free-shipping">무료배송</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/Vegan.png" height="100%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">웨이 리</div>
+                        <div class="product-name">웨이 리 비건 마라탕 5개입 5개</div>
+                        <div class="product-price-section">
+                            <div class="product-price">8,900원</div>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(789)</span>
+                        </div>
+                        <div class="shipping-info">
+                            <span class="free-shipping">무료배송</span> | 새벽배송
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="./img/Huadiao.jpg" height="90%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">명가</div>
+                        <div class="product-name">명가 화디아오 200gx3그릇</div>
+                        <div class="product-price-section">
+                            <div class="product-price">39,000원</div>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span>(432)</span>
+                        </div>
+                        <div class="shipping-info">
+                            <span class="free-shipping">무료배송</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-badge">HOT</div>
+                        <img src="./img/Manhan_Uyuk_jinmi_Cup.png" height="100%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">웅진식품</div>
+                        <div class="product-name">웅진식품 만한대찬 진미우육면 187G 3+3입 (총6개입)</div>
+                        <div class="product-price-section">
+                            <div class="product-price">44,580원</div>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span>(312)</span>
+                        </div>
+                        <div class="shipping-info">
+                            <span class="free-shipping">무료배송</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-badge discount-badge">18%</div>
+                        <img src="./img/Huaizicha.jpg" height="120%">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">화이지차</div>
+                        <div class="product-name">화이치쟈 간편 산라탕 컵면 135g, 6개</div>
+                        <div class="product-price-section">
+                            <span class="original-price">11,000원</span>
+                            <span class="discount-rate">18%</span>
+                            <div class="product-price">9,000원</div>
+                        </div>
+                        <div class="product-rating">
+                            <span class="stars">★★★☆☆</span>
+                            <span>(156)</span>
+                        </div>
+                        <div class="shipping-info">
+                            배송비 2,500원
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination-container">
+        <div class="pagination">
+            <button class="page-btn">‹‹</button>
+            <button class="page-btn">‹</button>
+            <a href="./Taiwanproduct.html"><button class="page-btn active">1</button></a>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <button class="page-btn">›</button>
+            <button class="page-btn">››</button>
+        </div>
+    </div>
+
+    <script>
+        // 검색 기능
+        document.querySelector('.search-btn').addEventListener('click', function () {
+            const searchTerm = document.querySelector('.search-box').value;
+            if (searchTerm.trim()) {
+                alert('검색어: ' + searchTerm);
+            }
+        });
+
+        // 정렬 옵션
+        document.querySelectorAll('.sort-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // 로딩 애니메이션 시뮬레이션
+                const grid = document.querySelector('.product-grid');
+                grid.classList.add('loading');
+                setTimeout(() => {
+                    grid.classList.remove('loading');
+                    alert(this.textContent + '로 정렬되었습니다.');
+                }, 1000);
+            });
+        });
+
+        // 뷰 토글
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 필터 적용
+        document.querySelector
+    </script>
+</body>
+
+</html>

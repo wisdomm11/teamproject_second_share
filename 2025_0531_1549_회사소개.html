@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회사소개 - 라면로드</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --coupang-blue: #ff5722;
+            --coupang-orange: #FF6900;
+            --dark-gray: #333;
+            --light-gray: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+        }
+
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: var(--coupang-blue) !important;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--coupang-blue) 0%, #e05104 100%);
+            color: ff5722;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-gray);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #ff5722;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--coupang-blue), var(--coupang-orange));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .service-description {
+            color: #666;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .stats-section {
+            background: var(--light-gray);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--coupang-blue);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-item {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--coupang-blue);
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--coupang-blue);
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .btn-coupang {
+            background: linear-gradient(135deg, var(--coupang-blue), var(--coupang-orange));
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-coupang:hover {
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="./mainpage.html">
+                <i class="fas fa-rocket me-2"></i>라면로드 뉴스룸
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">회사소개</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">서비스</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="hero-title">We are building<br>the future of commerce</h1>
+                    <p class="hero-subtitle">
+                        라면로드를 여는 순간부터 집으로 배달되는 순간까지<br>
+                        고객을 감동시키는 것을 목표로 라면쇼핑 경험을 재창조하고 있습니다.
+                    </p>
+                    <p class="hero-subtitle">"라면로드 없이 어떻게 살았을까"라는 생각이 드는 세상을 만들고 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2 class="section-title">We strive for the best customer<br>experience on Earth</h2>
+                    <p class="section-subtitle">
+                        라면로드 쇼핑몰에 온 걸 환영합니다!
+                        머리 복잡할 때, 야근하다 배고플 때, 아니면 그냥 맛있는 라면이 당길 때!
+                        그럴 땐 망설이지 말고 '라면로드 쇼핑몰' 문을 활짝 열어보세요! 🚪✨
+                        라면들만 엄선해서 모아놨습니다! 전국 팔도 숨겨진 라면 고수들의 비법 라면부터, 세상 신기한 외국 라면까지! 취향을 완벽하게 저격할 라면들이 너를 기다리고 있습니다! 😋
+                        우리의 목표는 하나! "코딩도 라면도 쉽고 맛있게 즐기자!”입니다!
+                        복잡한 회원가입? 긴 배송 기다림? 라면로드 쇼핑몰에선 그런 거 없습니다! 라면로드의 코딩 철학처럼, 쇼핑도 초간단! 클릭 몇 번이면 네 손안에 맛있는 라면이 뿅! 하고
+                        도착할 것 입니다! 🚀
+                        눈으로 즐기고, 코로 향긋한 라면 냄새를 맡는 상상을 하면서, 손가락으로 콕콕! 라면을 즐겨세요!
+                        라면로드 쇼핑몰에서 맛있는 라면과 코딩까지!
+                        <br><br>
+                        Welcome to the Ramen Road shopping mall!
+                        When you have a headache, when you're hungry while working late, or when you just crave
+                        delicious ramen!
+                        Don't hesitate to open the 'Ramen Road Shopping Mall' door wide! 🚪✨
+                        We've collected a selection of ramen! From ramen masters' secret recipe to world famous foreign
+                        ramen! There are ramen noodles waiting for you that will perfectly hit your taste! 😋
+                        Our goal is one! "Easy to code and enjoy ramen!"
+                        Complicated membership registration? Long wait for delivery? No, there's no such thing at ramen
+                        road shopping malls! Just like the coding philosophy of ramen road, shopping is super simple!
+                        With a few clicks, you'll get delicious ramen in your hand! 🚀
+                        Poke with your fingers, imagining enjoying it with your eyes and smelling the fragrant ramen
+                        with your nose! Pick your destiny ramen!
+                        From the ramen road shopping mall to delicious ramen and coding
+                        It’s done.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding bg-light" id="services">
+        <div class="container">
+            <h2 class="section-title">라면로드의 서비스</h2>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="service-title">라면로켓 배송</h3>
+                        <p class="service-description">
+                            수백만 개의 상품 셀렉션을 평균 12시간 내 배송합니다.
+                            최첨단 기술과 430만 ㎡에 달하는 규모의 물류 인프라를 통해
+                            고객의 쇼핑 경험을 바꾸어나가고 있습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="service-title">라면프레시</h3>
+                        <p class="service-description">
+                            국내 최대 규모의 온라인 장보기 서비스입니다.
+                            고객이 필요한 모든 식품을 특허 받은 친환경 프레시백으로 배송합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="service-title">라면직구</h3>
+                        <p class="service-description">
+                            수백만 개의 품목을 해외에서 배송합니다.
+                            해외 직구의 가격과 배송을 혁신해 상품을 저렴하고 빠르게 받아볼 수 있게 합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="service-title">라면이츠</h3>
+                        <p class="service-description">
+                            맛있는 음식을 가장 맛있는 순간에, 믿음직한 배달로 더 좋은 식사를 전합니다.
+                            줄 서는 맛집을 집에서 편하게 즐겨보세요.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <h3 class="service-title">라면플레이</h3>
+                        <p class="service-description">
+                            스포츠 경기 독점 라이브 스트리밍부터 블록버스터 영화와 오리지널 콘텐츠까지!
+                            특별한 스트리밍 경험을 선사합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="servic...
