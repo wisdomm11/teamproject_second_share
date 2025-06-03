@@ -513,6 +513,11 @@
 
             max-width: 1200px;
             margin: 0 auto;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
         }
 
         .second_navi {
@@ -541,6 +546,15 @@
 
             table-layout: fixed;
         }
+
+        /* 모바일(핸드폰) 화면에서만 적용 */
+        @media (max-width: 600px) {
+            .productinformation {
+                width: 95%;
+            }
+        }
+
+
 
         colgroup col.th-col {
             width: 16.66%;
