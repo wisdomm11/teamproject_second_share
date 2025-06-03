@@ -436,6 +436,10 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
             }
+
+            .second_navi {
+                width: 95% !important;
+            }
         }
     </style>
 </head>
@@ -530,6 +534,7 @@
             display: flex;
 
             width: 100%;
+            
 
         }
 
@@ -539,7 +544,7 @@
             border: 1px solid gray;
             
 
-            margin: 2px;
+            margin: 3px;
         }
 
         .second .productinformation table {
@@ -558,6 +563,10 @@
 
         /* 모바일(핸드폰) 화면에서만 적용 */
         @media (max-width: 600px) {
+            .first {
+                flex-direction: column;
+            }
+
             .productinformation {
                 width: 95%;
             }
@@ -602,6 +611,10 @@
                 margin-left: 0;
                 list-style-position: inside;
                 /* 필요시 */
+            }
+
+            .second_navi {
+                
             }
 
 
@@ -775,15 +788,27 @@
             flex: 4;
             min-width: 0;
         }
+
+        .productoption {
+            width: 100%;
+        }
+        .productoption div{
+            /* width: 24%; */
+            border: 1px solid gray;
+            
+            text-align: center;
+            
+
+        } 
     </style>
     <div class="main">
 
-        <div class="first row">
+        <div class="first">
 
             <div class="left">
                 <img src="./../img2/농심/농심라면1.jpg" alt="">
             </div>
-            <div class="d-xs-block d-md-none"></div>
+            
             <div class="right">
                 <script>
                     document.write("현재 가로 픽셀: " + window.innerWidth + "px");
@@ -856,12 +881,12 @@
                 </div>
             </div>
         </div>
-        <div class="second">
-            <div class="second_navi">
-                <div>상품상세</div>
-                <div>상품평</div>
-                <div>상품문의</div>
-                <div>배송/교환/반품 안내</div>
+        <div class="second container">
+            <div class="row row-cols-2 row-cols-xxl-4 productoption">
+                <div class="col">상품상세</div>
+                <div class="col">상품평</div>
+                <div class="col">상품문의</div>
+                <div class="col">배송/교환/반품 안내</div>
             </div>
             <div class="productinformation">
                 <div class="first">필수 표기정보</div>
