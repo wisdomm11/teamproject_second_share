@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>라면로드 - 새로운 라면의 시대</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         * {
             margin: 0;
@@ -85,8 +90,8 @@
             gap: 15px;
             align-items: center;
 
-            
-            
+
+
         }
 
         .user-menu a {
@@ -142,7 +147,7 @@
             cursor: pointer;
             margin-right: 20px;
             font-weight: bold;
-            
+
         }
 
         .nav-links {
@@ -177,7 +182,7 @@
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .main-banner {
@@ -215,7 +220,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             top: -100px;
             right: -100px;
             animation: float 6s ease-in-out infinite;
@@ -226,6 +231,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -233,8 +239,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
         }
 
         /* Product Grid */
@@ -242,7 +255,7 @@
             background: white;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .section-title {
@@ -270,7 +283,7 @@
 
         .product-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .product-image {
@@ -319,7 +332,7 @@
             background: white;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .quick-menu {
@@ -403,22 +416,22 @@
                 grid-template-columns: 1fr;
                 padding: 10px;
             }
-            
+
             .main-header {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .search-container {
                 margin: 0;
                 max-width: none;
             }
-            
+
             .nav-container {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .product-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 15px;
@@ -426,33 +439,31 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <div class="top-bar">
             <a href="./4_login/login1.html">로그인</a>
             <a href="./4_login/signup1.html">회원가입</a>
-            <a href="#">고객센터</a>  
+            <a href="#">고객센터</a>
         </div>
-        
+
         <div class="main-header">
             <a href="./index.html" class="logo">🍜 RamenRoad</a>
-            
+
             <div class="search-container">
                 <input type="text" class="search-box" placeholder="검색어를 입력하세요">
                 <button class="search-btn">🔍</button>
             </div>
-            
+
             <div class="user-menu">
                 <a href="#">내정보</a>
                 <a href="#">주문배송</a>
-                <a href="#" class="cart-icon">
-                    🛒
-                    <span class="cart-count">3</span>
-                </a>
+                <a href="#">장바구니</a>
             </div>
         </div>
-        
+
         <nav class="nav-bar">
             <div class="nav-container">
                 <button class="category-btn">📋 전체 카테고리</button>
@@ -494,7 +505,7 @@
                             <div class="product-rating">⭐⭐⭐⭐⭐ (128)</div>
                         </div>
                     </div>
-                    
+
                     <div class="product-card">
                         <div class="product-image"><img src="./img/Carbonara.jpg" height="90%"></div>
                         <div class="product-info">
@@ -503,7 +514,7 @@
                             <div class="product-rating">⭐⭐⭐⭐⭐ (203)</div>
                         </div>
                     </div>
-                    
+
                     <div class="product-card">
                         <div class="product-image"><img src="./img/Migoreng.jpg" height="90%"></div>
                         <div class="product-info">
@@ -512,7 +523,7 @@
                             <div class="product-rating">⭐⭐⭐⭐☆ (89)</div>
                         </div>
                     </div>
-                    
+
                     <div class="product-card">
                         <div class="product-image"><img src="./img/Nissin.jpg" height="90%"></div>
                         <div class="product-info">
@@ -521,7 +532,7 @@
                             <div class="product-rating">⭐⭐⭐⭐☆ (78)</div>
                         </div>
                     </div>
-                    
+
                     <div class="product-card">
                         <div class="product-image"><img src="./img/Laksa.jpg" height="90%"></div>
                         <div class="product-info">
@@ -530,7 +541,7 @@
                             <div class="product-rating">⭐⭐⭐⭐☆ (85)</div>
                         </div>
                     </div>
-                    
+
                     <div class="product-card">
                         <div class="product-image"><img src="./img/HaoHao.jpg" height="90%"></div>
                         <div class="product-info">
@@ -548,7 +559,7 @@
             <div class="ad-banner">
                 <div>🎁 신규회원<br>10% 할인쿠폰</div>
             </div>
-            
+
             <div class="sidebar-section">
                 <h3>빠른 메뉴</h3>
                 <ul class="quick-menu">
@@ -559,7 +570,7 @@
                     <li><a href="#">1:1 문의</a></li>
                 </ul>
             </div>
-            
+
             <div class="sidebar-section">
                 <h3>인기 카테고리</h3>
                 <ul class="quick-menu">
@@ -585,7 +596,7 @@
                     <li><a href="#">상품문의</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>회사정보</h3>
                 <ul>
@@ -595,7 +606,7 @@
                     <li><a href="#">광고문의</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>이용약관</h3>
                 <ul>
@@ -605,7 +616,7 @@
                     <li><a href="#">분쟁조정</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>SNS</h3>
                 <ul>
@@ -620,14 +631,14 @@
 
     <script>
         // 간단한 상호작용 기능
-        document.querySelector('.search-btn').addEventListener('click', function() {
+        document.querySelector('.search-btn').addEventListener('click', function () {
             const searchTerm = document.querySelector('.search-box').value;
             if (searchTerm.trim()) {
                 alert('검색어: ' + searchTerm);
             }
         });
 
-        document.querySelector('.search-box').addEventListener('keypress', function(e) {
+        document.querySelector('.search-box').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 const searchTerm = this.value;
                 if (searchTerm.trim()) {
@@ -638,16 +649,21 @@
 
         // 상품 카드 클릭 이벤트
         document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 const productName = this.querySelector('.product-name').textContent;
                 alert('상품 상세페이지: ' + productName);
             });
         });
 
         // 카테고리 버튼 클릭 이벤트
-        document.querySelector('.category-btn').addEventListener('click', function() {
+        document.querySelector('.category-btn').addEventListener('click', function () {
             alert('전체 카테고리 메뉴가 열립니다.');
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+
 </body>
+
 </html>

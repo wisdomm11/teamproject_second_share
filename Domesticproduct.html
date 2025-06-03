@@ -319,6 +319,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
+
+
         }
 
         .product-card {
@@ -512,6 +514,18 @@
             }
         }
 
+        /* 모바일(핸드폰) 화면에서만 적용 */
+        @media (max-width: 600px) {
+            .product-grid {
+                display: flex;
+                flex-direction: column;
+            }
+
+
+        }
+
+
+
         /* Loading Animation */
         @keyframes pulse {
 
@@ -551,10 +565,7 @@
             <div class="user-menu">
                 <a href="#">내정보</a>
                 <a href="#">주문배송</a>
-                <a href="#" class="cart-icon">
-                    🛒
-                    <span class="cart-count">3</span>
-                </a>
+                <a href="#">장바구니</a>
             </div>
         </div>
     </header>
@@ -749,6 +760,8 @@
                     </div>
                 </a>
 
+                
+
 
                 <!-- Product 2 -->
                 <div class="product-card">
@@ -774,6 +787,8 @@
                     </div>
                 </div>
 
+                
+
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-image">
@@ -794,6 +809,8 @@
                         </div>
                     </div>
                 </div>
+
+               
 
                 <!-- Product 4 -->
                 <div class="product-card">
@@ -816,6 +833,8 @@
                         </div>
                     </div>
                 </div>
+
+              
 
                 <!-- Product 5 -->
                 <div class="product-card">
@@ -841,6 +860,8 @@
                     </div>
                 </div>
 
+       
+
                 <!-- Product 6 -->
                 <div class="product-card">
                     <div class="product-image">
@@ -861,6 +882,8 @@
                         </div>
                     </div>
                 </div>
+
+           
 
                 <!-- Product 7 -->
                 <div class="product-card">
@@ -885,6 +908,8 @@
                         </div>
                     </div>
                 </div>
+
+     
 
                 <!-- Product 8 -->
                 <div class="product-card">
