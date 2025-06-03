@@ -114,28 +114,9 @@
             font-size: 14px;
         }
 
-        .cart-icon {
-            background: #e63312;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 3px;
-            position: relative;
-        }
+        
 
-        .cart-count {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #ff6b00;
-            color: white;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        
 
         /* Navigation */
         .nav-bar {
@@ -472,10 +453,7 @@
             <div class="user-menu">
                 <a href="#">내정보</a>
                 <a href="#">주문배송</a>
-                <a href="#" class="cart-icon">
-                    🛒
-                    <span class="cart-count">3</span>
-                </a>
+                <a href="#">장바구니</a>
             </div>
         </div>
 
@@ -726,11 +704,12 @@
     </style>
     <div class="main">
 
-        <div class="first">
+        <div class="first row">
 
             <div class="left">
                 <img src="./../img2/농심/농심라면1.jpg" alt="">
             </div>
+            <div class="d-block d-md-none"></div>
             <div class="right">
                 <div>농심라면 120g, 40개</div>
                 <div>원산지: 상품 상세설명 참조</div>
