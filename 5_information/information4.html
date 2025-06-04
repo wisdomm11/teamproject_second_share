@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>라면로드 - 새로운 라면의 시대</title>
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -41,20 +41,37 @@
             margin-left: 10px;
         }
 
-        .main-header {
+        /* .main-header {
             max-width: 1200px;
             margin: 0 auto;
             padding: 15px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+        } */
+
+        .main-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF6B6B;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+
         }
 
         .logo {
-            font-size: 2.5rem;
-            color: #FF4757;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 36px;
+            font-weight: bold;
+            color: #e63312;
+            text-decoration: none;
         }
 
         .search-container {
@@ -89,9 +106,6 @@
             display: flex;
             gap: 15px;
             align-items: center;
-
-
-
         }
 
         .user-menu a {
@@ -147,7 +161,6 @@
             cursor: pointer;
             margin-right: 20px;
             font-weight: bold;
-
         }
 
         .nav-links {
@@ -437,10 +450,115 @@
                 gap: 15px;
             }
         }
+    </style>
 
-        /* 모바일(핸드폰) 화면에서만 적용 */
+    <style>
+        .main1 {
+            width: 75%;
+            margin: 0 auto;
+            margin-top: 20px;
+
+
+            /* display: flex;
+            justify-content: center; */
+            justify-content: center;
+            align-items: center;
+
+
+
+        }
+
+        .main1 div {
+            border: 1px solid rgb(180, 179, 179);
+
+        }
+
+        .main2 {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+
+            text-align: center;
+        }
+
+        .main3 {
+            width: 100%;
+        }
+
+        .main4 {
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 20px;
+
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+
+            text-align: center;
+        }
+
+        .main5 {
+            width: 75%;
+            margin: 0 auto;
+            margin-top: 20px;
+
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+
+            text-align: center;
+        }
+
+        .main5 .set {
+            width: 80%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: left;
+            gap: 15px;
+        }
+
+        .main5 .set div {
+            flex: 1;
+        }
+
         @media (max-width: 600px) {
-            
+
+            .main1,
+            .main2,
+            .main4,
+            .main5 {
+                width: 85%;
+            }
+
+            .main5 .set {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .main5 img {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .main1 div {
+                font-size: 0.75rem;
+            }
 
             .footer-section {
                 text-align: center;
@@ -453,23 +571,20 @@
                 list-style-position: inside;
                 /* 필요시 */
             }
-
-
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="top-bar">
-            <a href="./4_login/login1.html">로그인</a>
-            <a href="./4_login/signup1.html">회원가입</a>
+            <a href="./2025_0530_1505_로그인.html">로그인</a>
+            <a href="#">회원가입</a>
             <a href="#">고객센터</a>
         </div>
 
         <div class="main-header">
-            <a href="./index.html" class="logo">🍜 RamenRoad</a>
+            <a href="./mainpage.html" class="logo">🍜RamenRoad</a>
 
             <div class="search-container">
                 <input type="text" class="search-box" placeholder="검색어를 입력하세요">
@@ -498,112 +613,138 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <main>
-            <!-- Banner Section -->
-            <section class="banner-section">
-                <div class="main-banner">
-                    <div class="banner-content">
-                        <div class="banner-title">특가 세일</div>
-                        <div class="banner-subtitle">최대 80% 할인 혜택</div>
-                    </div>
-                    <div class="banner-decoration"></div>
-                </div>
-            </section>
 
-            <!-- Product Section -->
-            <section class="product-section">
-                <h2 class="section-title">🔥 인기 상품</h2>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <div class="product-image"><img src="./img/fire.jpg" height="90%"></div>
-                        <div class="product-info">
-                            <div class="product-name">불닭볶음면 140g (20개)</div>
-                            <div class="product-price">17,750원</div>
-                            <div class="product-rating">⭐⭐⭐⭐⭐ (128)</div>
-                        </div>
-                    </div>
 
-                    <div class="product-card">
-                        <div class="product-image"><img src="./img/Carbonara.jpg" height="90%"></div>
-                        <div class="product-info">
-                            <div class="product-name">까르보불닭 130g, (8개)</div>
-                            <div class="product-price">10,160원</div>
-                            <div class="product-rating">⭐⭐⭐⭐⭐ (203)</div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image"><img src="./img/Migoreng.jpg" height="90%"></div>
-                        <div class="product-info">
-                            <div class="product-name">인도네시아-미고랭, (20개)</div>
-                            <div class="product-price">10,070원</div>
-                            <div class="product-rating">⭐⭐⭐⭐☆ (89)</div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image"><img src="./img/Nissin.jpg" height="90%"></div>
-                        <div class="product-info">
-                            <div class="product-name">일본-닛신 돈베이 키츠네 유부우동 95g, (12개)</div>
-                            <div class="product-price">26,000원</div>
-                            <div class="product-rating">⭐⭐⭐⭐☆ (78)</div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image"><img src="./img/Laksa.jpg" height="90%"></div>
-                        <div class="product-info">
-                            <div class="product-name">싱가포르-락사 185g (6개)</div>
-                            <div class="product-price">16.590원</div>
-                            <div class="product-rating">⭐⭐⭐⭐☆ (85)</div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image"><img src="./img/HaoHao.jpg" height="90%"></div>
-                        <div class="product-info">
-                            <div class="product-name">베트남-하오하오 77g, (1개)</div>
-                            <div class="product-price">480원</div>
-                            <div class="product-rating">⭐⭐⭐⭐☆ (67)</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="ad-banner">
-                <div>🎁 신규회원<br>10% 할인쿠폰</div>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>빠른 메뉴</h3>
-                <ul class="quick-menu">
-                    <li><a href="#">주문/배송조회</a></li>
-                    <li><a href="#">취소/반품</a></li>
-                    <li><a href="#">쿠폰함</a></li>
-                    <li><a href="#">적립금</a></li>
-                    <li><a href="#">1:1 문의</a></li>
-                </ul>
-            </div>
-
-            <div class="sidebar-section">
-                <h3>인기 카테고리</h3>
-                <ul class="quick-menu">
-                    <li><a href="#">매운맛</a></li>
-                    <li><a href="#">순한맛</a></li>
-                    <li><a href="#">해외상품</a></li>
-                    <li><a href="#">라면의류</a></li>
-                    <li><a href="#">라면가방</a></li>
-                </ul>
-            </div>
-        </aside>
+    <div class="container">
+        <div class="main1 row row-cols-3 row-cols-lg-6 text-center">
+            <div class="col">회사소개</div>
+            <div class="col">고객경험</div>
+            <div class="col">근무환경</div>
+            <div class="col">소상공인</div>
+            <div class="col">테크</div>
+            <div class="col">지속가능경영</div>
+        </div>
     </div>
 
-    <!-- Footer -->
+    <div class="main2">
+
+        <div>
+            <h3><strong>커머스의 미래를 만들어갑니다</strong></h3>
+        </div>
+        <div>
+            <h4>We are building the future of commerce</h4>
+        </div>
+        <div>
+            라면로드를 여는 순간부터 집으로 배달되는 순간까지<br>
+            고객을 감동시키는 것을 목표로 라면쇼핑 경험을 재창조하고 있습니다.
+        </div>
+        <div>
+            "라면로드 없이 어떻게 살았을까"라는 생각이 드는 세상을 만들고 있습니다.
+        </div>
+    </div>
+    <div class="main3">
+        <img src="./../img2/회사/introduction2.jpg" alt="" style="width: 100%; height: auto;">
+    </div>
+    <div class="main4">
+        <div>
+            <h3><strong>우리는 지상에서 가장 우수한 고객 경험을 제공하기 위해 노력합니다</strong></h3>
+        </div>
+        <div>
+            <h4><strong>We strive for the best customer experience on Earth</strong></h4>
+        </div>
+        <div>
+            라면로드 쇼핑몰에 온 걸 환영합니다!
+            머리 복잡할 때, 야근하다 배고플 때, 아니면 그냥 맛있는 라면이 당길 때!
+            그럴 땐 망설이지 말고 '라면로드 쇼핑몰' 문을 활짝 열어보세요! 🚪✨
+            라면들만 엄선해서 모아놨습니다! 전국 팔도 숨겨진 라면 고수들의 비법 라면부터, 세상 신기한 외국 라면까지! 취향을 완벽하게 저격할 라면들이 너를 기다리고 있습니다! 😋
+            우리의 목표는 하나! "코딩도 라면도 쉽고 맛있게 즐기자!”입니다!
+            복잡한 회원가입? 긴 배송 기다림? 라면로드 쇼핑몰에선 그런 거 없습니다! 라면로드의 코딩 철학처럼, 쇼핑도 초간단! 클릭 몇 번이면 네 손안에 맛있는 라면이 뿅! 하고
+            도착할 것 입니다! 🚀
+            눈으로 즐기고, 코로 향긋한 라면 냄새를 맡는 상상을 하면서, 손가락으로 콕콕! 라면을 즐겨세요!
+            라면로드 쇼핑몰에서 맛있는 라면과 코딩까지!
+        </div>
+    </div>
+
+    <style>
+
+    </style>
+    <div class="main5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2 align-items-center">
+                <div class="col">
+                    <img src="./../img2/introduction/about_1.png" alt="">
+                </div>
+                <div class="col">
+                    수백만 개의 상품 셀렉션을 평균 12시간 내 배송합니다.
+                    최첨단 기술과 430만 ㎡에 달하는 규모의 물류 인프라를 통해
+                    고객의 쇼핑 경험을 바꾸어나가고 있습니다.
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2 align-items-center">
+                <div class="col order-1 order-lg-2">
+                    <img src="./../img2/introduction/about_2.png" alt="">
+                </div>
+                <div class="col order-2 order-lg-1">
+                    국내 최대 규모의 온라인 장보기 서비스입니다.
+                    고객이 필요한 모든 식품을 특허 받은 친환경 프레시백으로 배송합니다.
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2 align-items-center">
+                <div class="col">
+                    <img src="./../img2/introduction/about_3.png" alt="">
+                </div>
+                <div class="col">
+                    수백만 개의 품목을 해외에서 배송합니다.
+                    해외 직구의 가격과 배송을 혁신해 상품을 저렴하고 빠르게 받아볼 수 있게 합니다.
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2 align-items-center">
+                <div class="col order-1 order-lg-2">
+                    <img src="./../img2/introduction/about_4.png" alt="">
+                </div>
+                <div class="col order-2 order-lg-1">
+                    맛있는 음식을 가장 맛있는 순간에, 믿음직한 배달로 더 좋은 식사를 전합니다.
+                    줄 서는 맛집을 집에서 편하게 즐겨보세요.
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row row-cols-1 row-cols-lg-2 align-items-center">
+                <div class="col">
+                    <img src="./../img2/introduction/about_5.png" alt="">
+                </div>
+                <div class="col">
+                    스포츠 경기 독점 라이브 스트리밍부터 블록버스터 영화와 오리지널 콘텐츠까지!
+                    특별한 스트리밍 경험을 선사합니다.
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -619,7 +760,7 @@
             <div class="footer-section">
                 <h3>회사정보</h3>
                 <ul>
-                    <li><a href="./5_information/information4.html">회사소개</a></li>
+                    <li><a href="./2025_0531_1549_회사소개.html">회사소개</a></li>
                     <li><a href="#">채용정보</a></li>
                     <li><a href="#">제휴문의</a></li>
                     <li><a href="#">광고문의</a></li>
@@ -647,38 +788,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // 간단한 상호작용 기능
-        document.querySelector('.search-btn').addEventListener('click', function () {
-            const searchTerm = document.querySelector('.search-box').value;
-            if (searchTerm.trim()) {
-                alert('검색어: ' + searchTerm);
-            }
-        });
-
-        document.querySelector('.search-box').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                const searchTerm = this.value;
-                if (searchTerm.trim()) {
-                    alert('검색어: ' + searchTerm);
-                }
-            }
-        });
-
-        // 상품 카드 클릭 이벤트
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.addEventListener('click', function () {
-                const productName = this.querySelector('.product-name').textContent;
-                alert('상품 상세페이지: ' + productName);
-            });
-        });
-
-        // 카테고리 버튼 클릭 이벤트
-        document.querySelector('.category-btn').addEventListener('click', function () {
-            alert('전체 카테고리 메뉴가 열립니다.');
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
