@@ -459,9 +459,17 @@
             margin-top: 20px;
 
 
-            display: flex;
+            /* display: flex;
+            justify-content: center; */
             justify-content: center;
-            gap: 20px;
+            align-items: center;
+
+
+
+        }
+
+        .main1 div {
+            border: 1px solid rgb(180, 179, 179);
 
         }
 
@@ -530,6 +538,14 @@
         }
 
         @media (max-width: 600px) {
+
+            .main1,
+            .main2,
+            .main4,
+            .main5 {
+                width: 85%;
+            }
+
             .main5 .set {
                 display: flex;
                 flex-direction: column;
@@ -538,6 +554,10 @@
             .main5 img {
                 width: 100%;
                 margin-bottom: 10px;
+            }
+
+            .main1 div {
+                font-size: 0.75rem;
             }
 
             .footer-section {
@@ -595,15 +615,17 @@
 
 
 
-
-    <div class="main1">
-        <div>회사소개</div>
-        <div>고객경험</div>
-        <div>근무환경</div>
-        <div>소상공인</div>
-        <div>테크</div>
-        <div>지속가능경영</div>
+    <div class="container">
+        <div class="main1 row row-cols-3 row-cols-lg-6 text-center">
+            <div class="col">회사소개</div>
+            <div class="col">고객경험</div>
+            <div class="col">근무환경</div>
+            <div class="col">소상공인</div>
+            <div class="col">테크</div>
+            <div class="col">지속가능경영</div>
+        </div>
     </div>
+
     <div class="main2">
 
         <div>
