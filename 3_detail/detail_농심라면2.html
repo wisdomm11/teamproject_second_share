@@ -18,7 +18,7 @@
 
         body {
             font-family: 'Malgun Gothic', sans-serif;
-            background-color: #f5f5f5;
+            /* background-color: #f5f5f5; */
         }
 
         /* Header */
@@ -590,16 +590,7 @@
                 height: auto !important;
             }
 
-            .fifth .a1 .a1_1 {
-                display: flex;
-                flex-direction: column;
 
-            }
-
-            .fifth .a1 .a1_1 div {
-                margin-top: 3px;
-
-            }
 
             .footer-section {
                 text-align: center;
@@ -724,6 +715,7 @@
         .fourth .a1 {
             display: flex;
             justify-content: space-between;
+
         }
 
         .fourth .a3 i {
@@ -746,27 +738,9 @@
             flex-direction: column;
         }
 
-        .fifth .a1 {
-            background-color: #333;
-            color: white;
 
 
-        }
 
-        .fifth .a1 input {
-            margin-top: 5px;
-        }
-
-        .fifth .a1 a {
-
-            color: white;
-        }
-
-        .fifth .a1 .a1_1 {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-        }
 
         .fifth .user img {
             height: 200px;
@@ -809,7 +783,7 @@
 
         .productoption {
             width: 100%;
-            border-top: 3px solid gray;
+            border-top: 5px solid gray;
 
         }
 
@@ -826,6 +800,13 @@
             text-decoration: none;
             color: black;
         }
+
+        .fifth .a1 {
+            background-color: gray;
+            padding: 10px;
+
+            border-radius: 10px;
+        }
     </style>
     <div class="main">
 
@@ -836,9 +817,9 @@
             </div>
 
             <div class="right">
-                <script>
+                <!-- <script>
                     document.write("현재 가로 픽셀: " + window.innerWidth + "px");
-                </script>
+                </script> -->
                 <div>농심라면 120g, 40개</div>
                 <div>원산지: 상품 상세설명 참조</div>
                 <hr>
@@ -905,28 +886,45 @@
                 <div class="dicision">
                     <select class="form-select" style="width: 50%; height: 40px; font-size: 1rem;"
                         aria-label="Default select example">
-                        <option selected>상품 개수를 선택해주십시오</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option selected>상품 개수 선택</option>
+                        <option value="1">1개</option>
+                        <option value="2">2개</option>
+                        <option value="3">3개</option>
                     </select>
                     <!-- <input type="number"> -->
                     <!-- <button>장바구니 담기</button> -->
                     <!-- <button>바로 구매 ></button> -->
 
                     <button type="button" class="btn btn-light"
-                        style="border: 1px solid blue; color: blue; background-color: white;">장바구니 담기</button>
+                        style="border: 0.1px solid gray; color: black; background-color: white;">장바구니 담기</button>
                     <button type="button" class="btn btn-primary">바로 구매</button>
                 </div>
             </div>
         </div>
         <div class="second container">
-            <div class="row row-cols-2 row-cols-xxl-4 productoption">
+            <!-- <div class="row row-cols-2 row-cols-xxl-4 productoption">
                 <div class="col">상품상세</div>
                 <div class="col">상품평</div>
                 <div class="col">상품문의</div>
                 <div class="col">배송/교환/반품 안내</div>
-            </div>
+            </div> -->
+            <ul class="nav nav-tabs w-100 nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">상품상세</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">상품평</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">상품문의</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">배송/교환/반품 안내</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
             <div class="productinformation">
                 <div class="first">필수 표기정보</div>
                 <table>
@@ -993,8 +991,8 @@
 
         <div class="fifth">
             <div class="a1">
-                <div class="a1_1">
-                    <!-- <div>
+                <!-- <div class="a1_1">
+                    <div>
                         <a href="">베스트순</a>
                         <span>|</span>
                         <a href="">최신순</a>
@@ -1003,20 +1001,34 @@
                     <div>
                         <input type="text" placeholder="상품평을 검색해보세요">
                         <input type="text" placeholder="모든 별점 보기">
-                    </div> -->
+                    </div>
+                </div> -->
+                <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <button type="button" class="btn btn-light" style="width: 150px;">베스트순</button>
 
-                    <div class="row g-3">
-                        <div class="col d-flex align-items-center" style="gap: 10px; ">
-                            <a href="" style="text-decoration: none;">베스트순</a>
-                            <span>|</span>
-                            <a href="" style="text-decoration: none;">최신순</a>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                        <div class="btn-group me-2" role="group" aria-label="Second group">
+                            <button type="button" class="btn btn-light" style="width: 150px;">최신순</button>
+
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                        </div>
+
+                    </div>
+                    <!-- <div class="input-group">
+                        <div class="input-group-text" id="btnGroupAddon2">상품평을 검색해보세요</div>
+                        <input type="text" class="form-control" placeholder="Input group example"
+                            aria-label="Input group example" aria-describedby="btnGroupAddon2">
+                    </div> -->
+                    <div class="input-group" style="width: 20%;">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>모든 별점 보기</option>
+                            <option value="1">1점</option>
+                            <option value="2">2점</option>
+                            <option value="3">3점</option>
+                            <option value="4">4점</option>
+                            <option value="5">5점</option>
+                        </select>
                     </div>
 
                 </div>
