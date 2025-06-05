@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <style>
+        .wrap {
+
+
+
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #e63312;
+            text-decoration: none;
+
+
+        }
+
+        .logo h4 {
+            margin-top: 6px;
+            margin-bottom: 6px;
+        }
+
+        .logo a {
+            text-decoration: none;
+        }
+
+        .wrap div {
+            width: 70%;
+            margin: 1px;
+
+            text-align: center;
+
+
+        }
+
+        .method {
+            display: flex;
+
+            justify-content: center;
+            align-content: center;
+
+
+        }
+
+        .method div {
+            margin: 5px;
+            font-size: 0.75rem;
+        }
+
+        .wrap hr {
+            width: 100%;
+        }
+
+        .wrap .ID_PW {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wrap .ID_PW input {
+            margin: 5px;
+        }
+
+        .wrap .login_option {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+
+
+        }
+
+        .login_option * {
+            font-size: 0.75rem;
+        }
+
+        .wrap .login_option div {
+
+
+            flex: 1;
+
+
+
+        }
+
+        .wrap .login_button {
+            margin: 3px;
+            background-color: blue;
+            color: white;
+            border-radius: 0.25rem;
+
+        }
+
+        .wrap .wrap_hr {
+            width: 70%
+        }
+
+        .wrap .signup_button {
+            border: 1px solid gray;
+            border-radius: 0.25rem;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+        }
+
+        
+        @media (min-width: 1200px) {
+            .wrap {
+                width: 33%;
+                margin: 0 auto;
+            }
+
+            
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 아래 링크를 참고해서 만든것 -->
+    <!-- https://login.coupang.com/login/login.pang?rtnUrl=https%3A%2F%2Fwww.coupang.com%2Fnp%2Fpost%2Flogin%3Fr%3Dhttp%253A%252F%252Fwww.coupang.com%252F -->
+
+    <div class="wrap">
+        <div class="logo">
+            <a href="./../index.html">
+                <h4>🍜 라면로드</h4>
+            </a>
+
+        </div>
+        <div class="method">
+            <div>이메일 로그인</div>
+            <div>휴대폰번호 로그인</div>
+            <div>QR코드 로그인</div>
+        </div>
+        <hr>
+        <div class="ID_PW">
+            <input type="text" placeholder="아이디">
+            <input type="password" placeholder="비밀번호">
+        </div>
+        <div class="login_option">
+            <div class="first">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        자동 로그인
+                    </label>
+                </div>
+            </div>
+            <div class="second">
+                아이디 | 비밀번호 찾기
+            </div>
+        </div>
+        <div class="login_button">
+            로그인
+        </div>
+        <hr class="wrap_hr">
+        <div class="signup_button">
+            회원가입
+        </div>
+    </div>
+</body>
+
+</html>
