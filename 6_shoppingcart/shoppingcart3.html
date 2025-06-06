@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+        .wrap {
+            width: 90%;
+            margin: 0 auto;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            
+
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: #FF4757;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+
+        }
+
+        .main1 {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            background-color: gray;
+
+        }
+
+        .main1 div {
+            margin-bottom: 10px;
+        }
+
+        .productsetname {
+            background-color: white;
+
+            width: 70%;
+            margin: 0 auto;
+            margin-top: 10px;
+
+            
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 10px;
+
+            border-radius: 5px;
+        }
+
+        .productset {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    
+
+        .product {
+            background-color: white;
+            width: 70%;
+            height: 100%;
+            display: flex;
+
+            align-items: start;
+
+            border-radius: 10px;
+
+        }
+
+        .align-center {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+        }
+
+        .product .div1 {
+            flex: 1;
+            height: 200px;
+        }
+
+        .product .div2 {
+            flex: 4;
+            height: 200px;
+        }
+
+        .product .div3 {
+            flex: 4;
+            height: 200px;
+        }
+
+        .product .div4 {
+            flex: 1;
+            height: 200px;
+        }
+
+
+
+
+        .btn-delete {
+            height: 40px;
+        }
+
+        .product img {
+            width: auto;
+            height: 200px;
+        }
+
+        .product .div3 span {
+            margin-bottom: 5px;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 110px;
+            height: 30px;
+
+            justify-content: space-between;
+            padding: 2px 8px;
+
+
+
+
+
+        }
+
+        .quantity-selector button {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.2s;
+        }
+
+        .quantity-selector button:hover {
+            color: #222;
+        }
+
+        .quantity-selector .quantity {
+            width: 28px;
+            height: 28px;
+            text-align: center;
+
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="logo">
+            🍜 RamenRoad
+        </div>
+        <div class="main1">
+
+            <div class="productsetname">
+                <h3>장바구니</h3>
+            </div>
+            <div class="productset">
+                <div class="product cart-item">
+                    <div class="form-check align-center div1">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </div>
+                    <div class="div2" style="display: flex; justify-content: center;">
+                        <img src="./../img2/농심/104579369936393-06a219c9-20a9-4347-b95a-ac3954aea8ca.jpg" alt="">
+                    </div>
+                    <div class="div3"
+                        style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
+                        <span>
+                            삼양 나가사끼 짬뽕 115g, 5개
+                        </span>
+                        <span>
+                            내일 (토) 3/4 도착 보장 <br>
+                            (밤 12시 전 주문 시)
+                        </span>
+                        <span>
+                            4,730원
+                        </span>
+                        <div class="quantity-selector" style="width: 30%;">
+                            <button class="decrement" style="margin-right: 10px;">-</button>
+                            <input type="number" class="quantity" value="1" min="1" readonly>
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+                    <div class="div4" style="display: flex; justify-content: start; width: 100%; align-items: center;">
+                        <button type="button" class="btn btn-secondary btn-delete">삭제</button>
+                    </div>
+                </div>
+                <div class="product cart-item">
+                    <div class="form-check align-center div1">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </div>
+                    <div class="div2" style="display: flex; justify-content: center;">
+                        <img src="./../img2/농심/104579369936393-06a219c9-20a9-4347-b95a-ac3954aea8ca.jpg" alt="">
+                    </div>
+                    <div class="div3"
+                        style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
+                        <span>
+                            삼양 나가사끼 짬뽕 115g, 5개
+                        </span>
+                        <span>
+                            내일 (토) 3/4 도착 보장 <br>
+                            (밤 12시 전 주문 시)
+                        </span>
+                        <span>
+                            4,730원
+                        </span>
+                        <div class="quantity-selector" style="width: 30%;">
+                            <button class="decrement" style="margin-right: 10px;">-</button>
+                            <input type="number" class="quantity" value="1" min="1" readonly>
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+                    <div class="div4" style="display: flex; justify-content: start; width: 100%; align-items: center;">
+                        <button type="button" class="btn btn-secondary btn-delete">삭제</button>
+                    </div>
+                </div>
+                <div class="product cart-item">
+                    <div class="form-check align-center div1">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </div>
+                    <div class="div2" style="display: flex; justify-content: center;">
+                        <img src="./../img2/농심/104579369936393-06a219c9-20a9-4347-b95a-ac3954aea8ca.jpg" alt="">
+                    </div>
+                    <div class="div3"
+                        style="display: flex; flex-direction: column; justify-content: center; align-items: start;">
+                        <span>
+                            삼양 나가사끼 짬뽕 115g, 5개
+                        </span>
+                        <span>
+                            내일 (토) 3/4 도착 보장 <br>
+                            (밤 12시 전 주문 시)
+                        </span>
+                        <span>
+                            4,730원
+                        </span>
+                        <div class="quantity-selector" style="width: 30%;">
+                            <button class="decrement" style="margin-right: 10px;">-</button>
+                            <input type="number" class="quantity" value="1" min="1" readonly>
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+                    <div class="div4" style="display: flex; justify-content: start; width: 100%; align-items: center;">
+                        <button type="button" class="btn btn-secondary btn-delete">삭제</button>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // jQuery가 로드된 후 실행
+
+
+        $(document).on('click', '.btn-delete', function () {
+            $(this).closest('.cart-item').remove();
+        });
+
+        const decrementBtn = document.querySelector('.decrement');
+        const incrementBtn = document.querySelector('.increment');
+        const quantityInput = document.querySelector('.quantity');
+
+        decrementBtn.addEventListener('click', () => {
+            let current = parseInt(quantityInput.value, 10);
+            if (current > 1) {
+                quantityInput.value = current - 1;
+            }
+        });
+
+        incrementBtn.addEventListener('click', () => {
+            let current = parseInt(quantityInput.value, 10);
+            quantityInput.value = current + 1;
+        });
+
+    </script>
+
+</body>
+
+</html>
