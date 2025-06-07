@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입 화면 샘플 - Bootstrap</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    body {
+      min-height: 100vh;
+
+      /* background: -webkit-gradient(linear, left bottom, right top, from(#92b5db), to(#1d466c)); */
+      background: -webkit-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+      background: -moz-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+      background: -o-linear-gradient(bottom left, #92b5db 0%, #1d466c 100%);
+      background: linear-gradient(to top right, #92b5db 0%, #1d466c 100%);
+    }
+
+    .input-form {
+      max-width: 680px;
+
+      margin-top: 80px;
+      padding: 32px;
+
+      background: #fff;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+    }
+
+    .container {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="input-form-backgroud row">
+      <div class="input-form col-md-12 mx-auto">
+        <a href="./../index.html" style="text-decoration: none; color: black;">
+          <h4 class="mb-3">🍜 라면로드 회원가입</h4>
+        </a>
+
+        <form class="validation-form" novalidate>
+          <div>
+            <div>
+              <label for="name">이름</label>
+              <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                이름을 입력해주세요.
+              </div>
+            </div>
+            <div style="margin-top: 5px;">
+              <label for="nickname">별명</label>
+              <input type="text" class="form-control" id="nickname" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                별명을 입력해주세요.
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="margin-top: 5px;">
+              <label for="name">아이디</label>
+              <input type="text" class="form-control" id="name" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                아이디를 입력해주세요.
+              </div>
+            </div>
+            <div style="margin-top: 5px;">
+              <label for="nickname">비밀번호</label>
+              <input type="text" class="form-control" id="nickname" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                비밀번호를 입력해주세요.
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 5px;">
+            <label for="email">이메일</label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+            <div class="invalid-feedback">
+              이메일을 입력해주세요.
+            </div>
+          </div>
+
+          <div style="margin-top: 5px;">
+            <label for="address">주소</label>
+            <input type="text" class="form-control" id="address" placeholder="서울특별시 강남구" required>
+            <div class="invalid-feedback">
+              주소를 입력해주세요.
+            </div>
+          </div>
+
+          <div style="margin-top: 5px;">
+            <label for="address2">상세주소<span class="text-muted">&nbsp;(필수 아님)</span></label>
+            <input type="text" class="form-control" id="address2" placeholder="상세주소를 입력해주세요.">
+          </div>
+
+          <div class="row" style="margin-top: 5px;">
+            <div class="col-md-8 mb-3">
+              <label for="root">가입 경로<span class="text-muted">&nbsp;(필수 아님)</span></label>
+              <select class="custom-select d-block w-100" id="root">
+                <option value=""></option>
+                <option>검색</option>
+                <option>카페</option>
+              </select>
+              <div class="invalid-feedback">
+                가입 경로를 선택해주세요.
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="code">추천인 코드</label>
+              <input type="text" class="form-control" id="code" placeholder="" required>
+              <div class="invalid-feedback">
+                추천인 코드를 입력해주세요.
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+          <style>
+            .a4 {
+              width: 90%;
+
+              display: flex;
+              gap: 5px;
+
+              margin-bottom: 5px;
+            }
+
+            .agreement-box {
+              border: 1px solid #ddd;
+              border-radius: 6px;
+              padding: 20px 25px;
+              width: 90%;
+              background: #fff;
+              font-family: 'Noto Sans KR', sans-serif;
+            }
+
+            .agreement-list {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+            }
+
+            .agreement-item {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding: 4px 0;
+            }
+
+            .agreement-label {
+              display: flex;
+              align-items: center;
+              font-size: 15px;
+              color: #333;
+              flex: 1;
+              cursor: pointer;
+            }
+
+            .agreement-label input[type="checkbox"] {
+              margin-right: 8px;
+              width: 18px;
+              height: 18px;
+              accent-color: #ccc;
+            }
+
+            .arrow {
+              font-size: 18px;
+              color: #bbb;
+              margin-left: 8px;
+              user-select: none;
+            }
+          </style>
+          <div class="a4">
+            <!-- <div>checkbox</div>
+            <div>모두 확인하였으며 동의합니다.</div> -->
+            <div class="allAgree">
+              <input type="checkbox" class="agreeAll" id="agree" name="agree" value="agree" />
+              <label for="agree">모두 확인하였으며 동의합니다. </label>
+            </div>
+          </div>
+
+          <style>
+            .ab_css {
+              border: 1px solid gray;
+              border-radius: 5px;
+              padding: 10px;
+            }
+          </style>
+          <div class="agreementbox ab_css">
+            <div>
+              <input class="agreement" type="checkbox" id="agree1" name="agreement_required" />
+              <label for="agree1">[필수] 이용약관 동의 </label>
+            </div>
+            <div>
+              <input class="agreement" type="checkbox" id="agree2" name="agreement_info" />
+              <label for="agree2">[선택] 마케팅 목적의 개인정보 수집 및 이용 동의</label>
+            </div>
+            <div>
+              <input class="agreement" type="checkbox" id="agree3" name="agreement_sns" />
+              <label for="agree3">[선택] SNS 수신 동의 </label>
+            </div>
+          </div>
+
+          <div class="mb-4"></div>
+          <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+    crossorigin="anonymous"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const forms = document.getElementsByClassName('validation-form');
+
+      Array.prototype.filter.call(forms, (form) => {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+
+    $(document).ready(function () {
+      //체크박스 모두 선택 시 전체 선택
+      $("#agree").click(function () {
+        //전체 선택 선택시 모두 체크, 해제
+        if ($("#agree").prop("checked")) {
+          $(".agreement").prop("checked", true);
+        } else {
+          $(".agreement").prop("checked", false);
+        }
+      });
+
+      //선택 갯수가 전체 선택 갯수와 같을 경우 전체 선택 체크
+      $(".agreement").click(function () {
+        if ($('input[class=agreement]:checked').length == $('.agreement').length) {
+          $('#agree').prop('checked', true);
+        } else {
+          $('#agree').prop('checked', false);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

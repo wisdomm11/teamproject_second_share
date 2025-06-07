@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .agreementbox {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <div class="allAgree">
+        <input type="checkbox" class="agreeAll" id="agree" name="agree" value="agree" />
+        <label for="agree">모두 확인하였으며 동의합니다. </label>
+    </div>
+    <div class="agreementbox">
+        <div>
+            <input class="agreement" type="checkbox" id="agree1" name="agreement_required" />
+            <label for="agree1">[필수] 이용약관 동의 </label>
+        </div>
+        <div>
+            <input class="agreement" type="checkbox" id="agree2" name="agreement_info" />
+            <label for="agree2">[선택] 마케팅 목적의 개인정보 수집 및 이용 동의</label>
+        </div>
+        <div>
+            <input class="agreement" type="checkbox" id="agree3" name="agreement_sns" />
+            <label for="agree3">[선택] SNS 수신 동의 </label>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function () {
+            //체크박스 모두 선택 시 전체 선택
+            $("#agree").click(function () {
+                //전체 선택 선택시 모두 체크, 해제
+                if ($("#agree").prop("checked")) {
+                    $(".agreement").prop("checked", true);
+                } else {
+                    $(".agreement").prop("checked", false);
+                }
+            });
+
+            //선택 갯수가 전체 선택 갯수와 같을 경우 전체 선택 체크
+            $(".agreement").click(function () {
+                if ($('input[class=agreement]:checked').length == $('.agreement').length) {
+                    $('#agree').prop('checked', true);
+                } else {
+                    $('#agree').prop('checked', false);
+                }
+            });
+        });  
+    </script>
+</body>
+
+</html>
