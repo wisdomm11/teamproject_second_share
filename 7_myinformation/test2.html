@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문 목록</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .order-list {
+            width: 90%;
+            margin: 0 auto;
+            padding: 10px;
+            border: 1px solid red;
+
+            padding-left: 30px;
+        }
+
+        .order-list__header {
+            margin-bottom: 20px;
+            
+        }
+
+        .order-list__title {
+            font-weight: bold;
+        }
+
+        .order-list__search {
+            margin: 10px 0;
+        }
+
+        .order-list__filter {
+            display: flex;
+            gap: 10px;
+        }
+
+        .order-list__filter-item {
+            margin-left: 10px;
+        }
+
+        .order-list__content {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            
+        }
+
+        .order-card {
+            border: 5px solid gray;
+            border-radius: 10px;
+            padding: 10px;
+            width: 70%;
+            margin-top: 15px;
+        }
+
+        .order-card__header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .order-card__item {
+            display: flex;
+            /* border: 1px solid red; */
+            padding: 10px;
+
+            border: 1px solid gray;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .order-card__left {
+            flex: 1;
+        }
+
+        .order-card__status {
+            margin-bottom: 10px;
+        }
+
+        .order-card__product {
+            display: flex;
+            /* border: 1px solid red; */
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .order-card__image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .order-card__info {
+            flex: 1;
+        }
+
+        .order-card__actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            justify-content: center;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="order-list">
+        <div class="order-list__header">
+            <div class="order-list__title">
+                <h2>주문목록</h2>
+            </div>
+            <div class="order-list__search">
+                <!-- 검색창 -->
+                <nav class="navbar navbar-light">
+                    <div class="container-fluid">
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="주문한 상품을 검색할 수 있어요!"
+                                aria-label="Search" style="width: 300px;">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+            <div class="order-list__filter">
+                <!-- <div class="order-list__filter-item">최근 6개월</div>
+                <div class="order-list__filter-item">2025</div>
+                <div class="order-list__filter-item">2024</div>
+                <div class="order-list__filter-item">2023</div> -->
+
+                <button type="button" class="btn btn-primary order-list__filter-item">최근 6개월</button>
+                <button type="button" class="btn btn-secondary order-list__filter-item">2025년</button>
+                <button type="button" class="btn btn-secondary order-list__filter-item">2024년</button>
+                <button type="button" class="btn btn-secondary order-list__filter-item">2023년</button>
+
+
+
+            </div>
+        </div>
+        <div class="order-list__content">
+            <div class="order-card">
+                <div class="order-card__header">
+                    <div class="order-card__date">2025.05.31 주문</div>
+                    <div class="order-card__detail">주문 상세보기</div>
+                </div>
+                <div class="order-card__item">
+                    <div class="order-card__left">
+                        <div class="order-card__status">배송완료 | 6/1 (일) 도착</div>
+                        <div class="order-card__product">
+                            <img class="order-card__image"
+                                src="./../img2/농심/104579369936393-06a219c9-20a9-4347-b95a-ac3954aea8ca.jpg" alt="">
+                            <div class="order-card__info">
+                                <div>초코하임 크라운 화이트 하임, 284g, 1개</div>
+                                <div>3,780원 | 1개</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-card__actions">
+                        <div>배송조회</div>
+                        <div>교환, 반품 신청</div>
+                        <div>리뷰 작성하기</div>
+                    </div>
+                </div>
+                <div class="order-card__item">
+                    <div class="order-card__left">
+                        <div class="order-card__status">배송완료 | 6/1 (일) 도착</div>
+                        <div class="order-card__product">
+                            <img class="order-card__image"
+                                src="./../img2/농심/2206947749817316-e2b92f96-78c6-467b-89ca-e23360485306.jpg" alt="">
+                            <div class="order-card__info">
+                                <div>초코하임 크라운 화이트 하임, 284g, 1개</div>
+                                <div>3,780원 | 1개</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-card__actions">
+                        <div>배송조회</div>
+                        <div>교환, 반품 신청</div>
+                        <div>리뷰 작성하기</div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-card">
+                <div class="order-card__header">
+                    <div class="order-card__date">2025.05.31 주문</div>
+                    <div class="order-card__detail">주문 상세보기</div>
+                </div>
+                <div class="order-card__item">
+                    <div class="order-card__left">
+                        <div class="order-card__status">배송완료 | 6/1 (일) 도착</div>
+                        <div class="order-card__product">
+                            <img class="order-card__image"
+                                src="./../img2/농심/104579369936393-06a219c9-20a9-4347-b95a-ac3954aea8ca.jpg" alt="">
+                            <div class="order-card__info">
+                                <div>초코하임 크라운 화이트 하임, 284g, 1개</div>
+                                <div>3,780원 | 1개</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-card__actions">
+                        <div>배송조회</div>
+                        <div>교환, 반품 신청</div>
+                        <div>리뷰 작성하기</div>
+                    </div>
+                </div>
+                <div class="order-card__item">
+                    <div class="order-card__left">
+                        <div class="order-card__status">배송완료 | 6/1 (일) 도착</div>
+                        <div class="order-card__product">
+                            <img class="order-card__image"
+                                src="./../img2/농심/2206947749817316-e2b92f96-78c6-467b-89ca-e23360485306.jpg" alt="">
+                            <div class="order-card__info">
+                                <div>초코하임 크라운 화이트 하임, 284g, 1개</div>
+                                <div>3,780원 | 1개</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-card__actions">
+                        <div>배송조회</div>
+                        <div>교환, 반품 신청</div>
+                        <div>리뷰 작성하기</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
